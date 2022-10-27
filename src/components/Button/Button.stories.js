@@ -1,12 +1,14 @@
 import React from "react";
 import Button from "./Button";
+import Center from "../Center/Center";
 
 export default {
     title: 'form/Button', /* Mandatory and should be unique */
     component: Button, /* optional */
     args: { /* optional, default Args */
         children: 'Button'
-    }
+    },
+    decorators: [ story => <Center>{ story() }</Center> ] // Local Decorator
 }
 
 // Version V5
