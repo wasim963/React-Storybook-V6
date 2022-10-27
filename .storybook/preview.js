@@ -1,6 +1,8 @@
 import React from "react";
 import Center from "../src/components/Center/Center";
 import { ChakraProvider, theme, Box } from "@chakra-ui/react";
+import { addDecorator } from "@storybook/react";
+import { withConsole } from '@storybook/addon-console';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -16,12 +18,12 @@ export const parameters = {
   }
 }
 
-// Global Decorators - Customiesd Decorator
+// Global Decorators - Customized Decorator
 // export const decorators = [
 //   ( Story ) => <Center>{ <Story /> }</Center>
 // ]
 
-// GLobal Decorator -  Theme Using Chakra UI
+// Global Decorator -  Theme Using Chakra UI
 export const decorators = [
   ( Story ) => <ChakraProvider theme={theme} >
     <Box m='4'>
@@ -29,3 +31,6 @@ export const decorators = [
     </Box>
   </ChakraProvider>
 ]
+
+// Console Add with Context
+addDecorator( ( story, context ) => withConsole()( story )( context ) )
