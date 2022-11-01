@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import Center from "../Center/Center";
+import { text, boolean, number } from "@storybook/addon-knobs";
 
 export default {
     title: 'form/Button', /* Mandatory and should be unique */
@@ -37,4 +38,24 @@ export const SeconadryA = Template.bind({});
 SeconadryA.args = {
     variant: 'secondary',
     // children: 'Secondary A'
+}
+
+// Knobs for manaul components
+export const Black = Template.bind({});
+Black.args = {
+    variant: 'black',
+    children: 'Black Pawan'
+}
+
+// Knobs Addon Story
+export const BackGrButton = () => {
+    const background = text( 'background', 'white' );
+    return (
+        <Button 
+            disabled={ boolean( 'disabled', false ) } 
+            colorScheme={background}
+            background={background  }
+        > BackGrButton
+        </Button>
+    );
 }
